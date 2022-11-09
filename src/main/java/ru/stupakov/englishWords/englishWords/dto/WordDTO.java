@@ -1,8 +1,15 @@
 package ru.stupakov.englishWords.englishWords.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
-
+@Builder
+@Getter
+@Setter
 public class WordDTO {
 
     @NotEmpty(message = "Start language should not be empty!")
@@ -13,23 +20,10 @@ public class WordDTO {
     @NotEmpty(message = "Start word should not be empty!")
     private String startWord;
 
-    public WordDTO(String startWord) {
-        this.startWord = startWord;
-    }
-
     public WordDTO() {
     }
 
-    public String getEndLanguage() {
-        return endLanguage;
-    }
-
-    public String getStartWord() {
-        return startWord;
-    }
-
-    public void setStartWord(String startWord) {
+    public WordDTO(String startWord) {
         this.startWord = startWord;
     }
-
 }
